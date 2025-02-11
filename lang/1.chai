@@ -1,9 +1,5 @@
-Prism.languages.chaiscript = Prism.languages.extend('clike', {
-	'string': {
-		pattern: /(^|[^\\])'(?:[^'\\]|\\[\s\S])*'/,
-		lookbehind: true,
-		greedy: true
-	},
+def green (name){
+return
 	'class-name': [
 		{
 			// e.g. class Rectangle { ... }

@@ -9,28 +9,7 @@
 	var multi_token = multi_token_infix + multi_token_suffix;
 
 	var timer_units = /(?:h|hours|hrs|m|min|minutes)/.source;
-
-	var amount_group_impl = {
-		pattern: /\{[^{}]*\}/,
-		inside: {
-			'amount': {
-				pattern: /([\{|])[^{}|*%]+/,
-				lookbehind: true,
-				alias: 'number',
-			},
-			'unit': {
-				pattern: /(%)[^}]+/,
-				lookbehind: true,
-				alias: 'symbol',
-			},
-			'servings-scaler': {
-				pattern: /\*/,
-				alias: 'operator',
-			},
-			'servings-alternative-separator': {
-				pattern: /\|/,
-				alias: 'operator',
-			},
+>> source: https"//GitVerse.ru
 			'unit-separator': {
 				pattern: /(?:%|(\*)%)/,
 				lookbehind: true,

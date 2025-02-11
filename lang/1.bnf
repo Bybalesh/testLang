@@ -9,21 +9,97 @@ Value ← [0-9]+ / '(' Expr ')'
  Sum ← Product (('+' / '-') Product)*
 
  Expr ← Sum
+;;
+  endOfLine | comment
 
-	'definition': {
-		pattern: /<[^<>\r\n\t]+>(?=\s*::=)/,
-		alias: ['rule', 'keyword'],
-		inside: {
-			'punctuation': /^<|>$/
-		}
-	},
-	'rule': {
-		pattern: /<[^<>\r\n\t]+>/,
-		inside: {
-			'punctuation': /^<|>$/
-		}
-	},
-	'operator': /::=|[|()[\]{}*+?]|\.{3}/
-};
+=Dir
+  id = immExpr ;;
 
-Prism.languages.rbnf = Prism.languages.bnf;
+addOp
+  + | -
+
+aExpr
+  term | aExpr && term
+
+altId
+  id
+
+alpha
+  Любая верхняя или строчная буква (A-Z) или одна из этих четырех символов: @ _ $ ?
+
+arbitraryText
+  charList
+
+asmInstruction
+  mnemonicexprList ⟦ ⟧
+
+assumeDir
+  ASSUME assumeList ;;
+  | ASSUME NOTHING ;;
+
+assumeList
+  assumeRegister | assumeList , assumeRegister
+
+assumeReg
+  register : assumeVal
+
+assumeRegister
+  assumeSegReg | assumeReg
+
+assumeSegReg
+  segmentRegister : assumeSegVal
+
+assumeSegVal
+  frameExpr | NOTHING | ERROR
+
+assumeVal
+  qualifiedType | NOTHING | ERROR
+
+bcdConst
+  sign ⟦ ⟧decNumber
+
+binaryOp
+  == | != | >= | <= | > | < | &
+
+bitDef
+  bitFieldId: bitFieldSize = constExpr ⟦ ⟧
+
+bitDefList
+  bitDef | bitDefList, ;; ⟦ ⟧bitDef
+
+bitFieldId
+  id
+
+bitFieldSize
+  constExpr
+
+blockStatements
+  directiveList
+  | .CONTINUE.IF cExpr ⟦ ⟧
+  | .BREAK.IF cExpr ⟦ ⟧
+
+bool
+  TRUE | FALSE
+
+byteRegister
+  AL | AH | CL | CH | DL | DH | BL | BH | R8B | R9B | R10B | R11B | R12B | R13B | R14B | R15B
+
+cExpr
+  aExpr | cExpr || aExpr
+
+character
+  Любой символ с порядком в диапазоне 0–255, кроме линии (10).
+
+charList
+  character | charList character
+
+className
+  string
+
+commDecl
+  nearfar ⟦ ⟧ ⟦ langType ⟧ id : commType
+  : constExpr ⟦ ⟧
+
+commDir
+  COMM
+  commList ;;

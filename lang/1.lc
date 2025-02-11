@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<!html>
+<head>
+-- example.lc
+
+print("Hello, World!")
+
+gpio.mode(4, gpio.OUTPUT)
+gpio.write(4, gpio.HIGH)
+tmr.delayms(1000)
+gpio.write(4, gpio.LOW)

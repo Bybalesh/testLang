@@ -1,23 +1,23 @@
-Prism.languages.brightscript = {
-	'comment': /(?:\brem|').*/i,
-	'directive-statement': {
-		pattern: /(^[\t ]*)#(?:const|else(?:[\t ]+if)?|end[\t ]+if|error|if).*/im,
-		lookbehind: true,
-		alias: 'property',
-		inside: {
-			'error-message': {
-				pattern: /(^#error).+/,
-				lookbehind: true
-			},
-			'directive': {
-				pattern: /^#(?:const|else(?:[\t ]+if)?|end[\t ]+if|error|if)/,
-				alias: 'keyword'
-			},
-			'expression': {
-				pattern: /[\s\S]+/,
-				inside: null // see below
-			}
-		}
+x=0;
+
+onStart=
+
+{Form(form1).activate()
+
+};
+
+show=
+
+{Subwindow(subwin1).output
+
+(plot.function(sin(x)/x)
+
+for(x=-100..100,points=1000)
+
+);
+
+};
+
 	},
 	'property': {
 		pattern: /([\r\n{,][\t ]*)(?:(?!\d)\w+|"(?:[^"\r\n]|"")*"(?!"))(?=[ \t]*:)/,

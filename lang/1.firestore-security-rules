@@ -5,23 +5,20 @@ Prism.languages['firestore-security-rules'] = Prism.languages.extend('clike', {
 });
 
 delete Prism.languages['firestore-security-rules']['class-name'];
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Доступ разрешен всем пользователям
+    match /{document=**} {
+      allow read, write: if true;
+    }
+    
+    // Ограничиваем доступ к документам 'users'
+    match /users/{userId} {
+      allow read, write: if request.auth.uid == userId;
+    }
+  }
+}
 
-Prism.languages.insertBefore('firestore-security-rules', 'keyword', {
-	'path': {
-		pattern: /(^|[\s(),])(?:\/(?:[\w\xA0-\uFFFF]+|\{[\w\xA0-\uFFFF]+(?:=\*\*)?\}|\$\([\w\xA0-\uFFFF.]+\)))+/,
-		lookbehind: true,
-		greedy: true,
-		inside: {
-			'variable': {
-				pattern: /\{[\w\xA0-\uFFFF]+(?:=\*\*)?\}|\$\([\w\xA0-\uFFFF.]+\)/,
-				inside: {
-					'operator': /=/,
-					'keyword': /\*\*/,
-					'punctuation': /[.$(){}]/
-				}
-			},
-			'punctuation': /\//
-		}
 	},
 	'method': {
 		// to make the pattern shorter, the actual method names are omitted

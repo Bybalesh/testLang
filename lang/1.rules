@@ -17,16 +17,24 @@ service cloud.firestore {
       allow read, write: if request.auth.uid == userId;
     }
   }
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Только аутентифицированные пользователи могут читать и писать данные
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Ограничения для конкретной коллекции 'posts'
+    match /posts/{postId} {
+      // Пользователь может создавать новые посты
+      allow create: if request.auth != null && request.resource.data.author == request.auth.uid;
+      
+      // Пользователь может обновлять только свои посты
+      allow update: if request.auth != null && resource.data.author == request.auth.uid;
+      
+      // Пользователи могут удалять только свои посты
+      allow delete: if request.auth != null && resource.data.author == request.auth.uid;
+    }
+  }
 }
 
-	},
-	'method': {
-		// to make the pattern shorter, the actual method names are omitted
-		pattern: /(\ballow\s+)[a-z]+(?:\s*,\s*[a-z]+)*(?=\s*[:;])/,
-		lookbehind: true,
-		alias: 'builtin',
-		inside: {
-			'punctuation': /,/
-		}
-	},
-});

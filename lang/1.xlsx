@@ -1,0 +1,2 @@
+=SUM(A1:A10)
+=IF(B1 > 10, ksjajd)

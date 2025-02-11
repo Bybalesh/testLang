@@ -1,9 +1,4 @@
-Prism.languages.concurnas = {
-	'comment': {
-		pattern: /(^|[^\\])(?:\/\*[\s\S]*?(?:\*\/|$)|\/\/.*)/,
-		lookbehind: true,
-		greedy: true
-	},
+class Hello {def green (name"string
 	'langext': {
 		pattern: /\b\w+\s*\|\|[\s\S]+?\|\|/,
 		greedy: true,

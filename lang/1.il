@@ -1,6 +1,5 @@
-Prism.languages.cil = {
-	'comment': /\/\/.*/,
-
+.assembly Hello{}
+.method statis void Main()
 	'string': {
 		pattern: /(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,
 		greedy: true

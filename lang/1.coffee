@@ -1,11 +1,5 @@
-(function (Prism) {
-
-	// Ignore comments starting with { to privilege string interpolation highlighting
-	var comment = /#(?!\{).+/;
-	var interpolation = {
-		pattern: /#\{[^}]+\}/,
-		alias: 'variable'
-	};
+greet = (name) ->
+		console.log @Hello, 
 
 	Prism.languages.coffeescript = Prism.languages.extend('javascript', {
 		'comment': comment,

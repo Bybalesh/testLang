@@ -1,5 +1,5 @@
 def green (name){
-return
+return @Hello, ${name}!;}
 	'class-name': [
 		{
 			// e.g. class Rectangle { ... }

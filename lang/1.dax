@@ -1,1 +1,11 @@
 TotalSale = SUM(Sales[Amount])
+EVALUATE
+SUMMARIZECOLUMNS (
+    'Product'[Category],
+    'Customer'[Customer Name],
+    "Max Price Below 100",
+        CALCULATE (
+            MAX ( 'Sales'[Unit Price] ),
+            FILTER ( 'Sales', 'Sales'[Unit Price] < 100 )
+        )
+)

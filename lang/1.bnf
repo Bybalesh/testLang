@@ -2,6 +2,14 @@ Prism.languages.bnf = {
 	'string': {
 		pattern: /"[^\r\n"]*"|'[^\r\n']*'/
 	},
+Value ← [0-9]+ / '(' Expr ')'
+
+ Product ← Value (('*' / '/') Value)*
+
+ Sum ← Product (('+' / '-') Product)*
+
+ Expr ← Sum
+
 	'definition': {
 		pattern: /<[^<>\r\n\t]+>(?=\s*::=)/,
 		alias: ['rule', 'keyword'],

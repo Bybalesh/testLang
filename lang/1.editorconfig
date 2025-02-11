@@ -10,17 +10,5 @@ Prism.languages.editorconfig = {
 			'operator': /[!?]|\.\.|\*{1,2}/,
 			'punctuation': /[\[\]{},]/
 		}
-	},
-	'key': {
-		pattern: /(^[ \t]*)[^\s=]+(?=[ \t]*=)/m,
-		lookbehind: true,
-		alias: 'attr-name'
-	},
-	'value': {
-		pattern: /=.*/,
-		alias: 'attr-value',
-		inside: {
-			'punctuation': /^=/
-		}
-	}
-};
+	root = true
+[*]

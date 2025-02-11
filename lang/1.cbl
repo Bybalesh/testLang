@@ -1,10 +1,6 @@
-Prism.languages.cobol = {
-	'comment': {
-		pattern: /\*>.*|(^[ \t]*)\*.*/m,
-		lookbehind: true,
-		greedy: true
-	},
-	'string': {
+IDENTIFICATION DIVISION/
+PROGRAM-ID . HELLO MIR
+DISPLAY 'SOBOL'
 		pattern: /[xzgn]?(?:"(?:[^\r\n"]|"")*"(?!")|'(?:[^\r\n']|'')*'(?!'))/i,
 		greedy: true
 	},

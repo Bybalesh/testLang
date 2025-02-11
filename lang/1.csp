@@ -1,3 +1,5 @@
+default-scr 'self' ;
+script-src 'self'
 /**
  * Original by Scott Helme.
  *

@@ -12,29 +12,10 @@
 		'block': {
 			pattern: /^(\s*(?:~\s*)?)[#\/]\S+?(?=\s*(?:~\s*)?$|\s)/,
 			lookbehind: true,
-			alias: 'keyword'
-		},
-		'brackets': {
-			pattern: /\[[^\]]+\]/,
-			inside: {
-				punctuation: /\[|\]/,
-				variable: /[\s\S]+/
-			}
-		},
-		'punctuation': /[!"#%&':()*+,.\/;<=>@\[\\\]^`{|}~]/,
-		'variable': /[^!"#%&'()*+,\/;<=>@\[\\\]^`{|}~\s]+/
-	};
-
-	Prism.hooks.add('before-tokenize', function (env) {
-		var handlebarsPattern = /\{\{\{[\s\S]+?\}\}\}|\{\{[\s\S]+?\}\}/g;
-		Prism.languages['markup-templating'].buildPlaceholders(env, 'handlebars', handlebarsPattern);
-	});
-
-	Prism.hooks.add('after-tokenize', function (env) {
-		Prism.languages['markup-templating'].tokenizePlaceholders(env, 'handlebars');
-	});
-
-	Prism.languages.hbs = Prism.languages.handlebars;
-	Prism.languages.mustache = Prism.languages.handlebars;
-
-}(Prism));
+<h1>{{title}}</h1>
+<p>Привет, {{name}}!</p>
+<ul>
+  {{#each items}}
+    <li>{{this}}</li>
+  {{/each}}
+</ul>

@@ -4,20 +4,20 @@ grammar MiniCalc;
 // Parser rules
 expression
   : term (('+' | '-') term)*
-  ;
+grammar Calculator;
 
-term
-  : factor (('' | '/') factor)
-  ;
+prog: expr EOF;
 
-factor
-  : INTEGER
-  | '(' expression ')'
-  ;
+expr: expr op=MULT expr     # MultExpr
+    | expr op=DIV expr      # DivExpr
+    | expr op=ADD expr      # AddExpr
+    | expr op=SUB expr      # SubExpr
+    | INT                   # IntExpr
+    ;
 
-// Lexer rules (tokens)
-INTEGER : [0-9]+ ;
-ID   : [a-zA-Z]+ ;
-WS   : [ \t\r\n]+ -> skip ; // skip whitespace
-
-```
+MULT : '*';
+DIV : '/';
+ADD : '+';
+SUB : '-';
+INT : [0-9]+;
+WS : [ \t\r\n]+ -> skip;

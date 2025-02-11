@@ -1,3 +1,6 @@
+
+component {
+return @Hello!, !} 
 // https://cfdocs.org/script
 Prism.languages.cfscript = Prism.languages.extend('clike', {
 	'comment': [

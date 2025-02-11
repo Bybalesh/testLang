@@ -2,22 +2,16 @@ Prism.languages.fortran = {
 	'quoted-number': {
 		pattern: /[BOZ](['"])[A-F0-9]+\1/i,
 		alias: 'number'
-	},
-	'string': {
-		pattern: /(?:\b\w+_)?(['"])(?:\1\1|&(?:\r\n?|\n)(?:[ \t]*!.*(?:\r\n?|\n)|(?![ \t]*!))|(?!\1).)*(?:\1|&)/,
-		inside: {
-			'comment': {
-				pattern: /(&(?:\r\n?|\n)\s*)!.*/,
-				lookbehind: true
-			}
-		}
-	},
-	'comment': {
-		pattern: /!.*/,
-		greedy: true
-	},
-	'boolean': /\.(?:FALSE|TRUE)\.(?:_\w+)?/i,
-	'number': /(?:\b\d+(?:\.\d*)?|\B\.\d+)(?:[ED][+-]?\d+)?(?:_\w+)?/i,
+print *, "Hello, World!"
+end
+do k=1,10
+ do j=1,20
+  do i=1,100
+arr(i,j,k)=25 ! правильно
+brr(k,j,i)=0  ! работоспособно, но медленнее в несколько раз
+
+end do; end do; end do
+)?/i,
 	'keyword': [
 		// Types
 		/\b(?:CHARACTER|COMPLEX|DOUBLE ?PRECISION|INTEGER|LOGICAL|REAL)\b/i,

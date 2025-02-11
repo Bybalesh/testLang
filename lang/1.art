@@ -1,0 +1,37 @@
+; Вывод "Hello, World!" на экран
+print "Hello, World!"
+
+; Определение функции для вычисления факториала
+factorial $[n]{
+    if? n = 0  [return 1]
+    return n * factorial n-1
+}
+
+; Вычисление и вывод факториала числа 5
+print "Factorial of 5: " + to :string factorial 5
+
+; Пример работы с массивом
+numbers := [1, 2, 3, 4, 5]
+print "Numbers: " + to :string numbers
+
+; Фильтрация массива для получения четных чисел
+evenNumbers := select numbers, $[number]{
+    return? number % 2 = 0
+}# ART File: Art Collection
+# Format: Name, Artist, Year, Medium
+
+Mona Lisa, Leonardo da Vinci, 1503, Oil on panel
+The Starry Night, Vincent van Gogh, 1889, Oil on canvas
+The Persistence of Memory, Salvador Dalí, 1931, Oil on canvas
+
+print "Even numbers: " + to :string evenNumbers
+
+; Пример работы с объектами (maps)
+person := #{
+    name: "John"
+    age: 30
+    city: "New York"
+}
+
+print "Person: " + to :string person
+print "Name: " + person\name

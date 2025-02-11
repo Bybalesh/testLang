@@ -1,0 +1,54 @@
+Prism.languages.bbcode = {
+	'tag': {
+		pattern: /\[\/?[^\s=\]]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'"\]=]+))?(?:\s+[^\s=\]]+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'"\]=]+))*\s*\]/,
+		inside: {
+			'tag': {
+				pattern: /^\[\/?[^\s=\]]+/,
+				inside: {
+					'punctuation': /^\[\/?/
+				}
+			},Заголовки:
+
+[h1] Заголовок 1-го уровня [/h1]
+
+[h2] Заголовок 2-го уровня [/h2]
+
+[h3] Заголовок 3-го уровня [/h3]
+
+[h4] Заголовок 4-го уровня [/h4]
+
+[h5] Заголовок 5-го уровня [/h5]
+
+[h6] Заголовок 6-го уровня [/h6]
+
+Оформление текста с помощью шрифтов:
+
+[font=Times New Roman] Шрифт Comic Sans Ms [/font]
+
+[font=Monotype Corsiva] Шрифт Monotype Corsiva [/font]
+
+[font=Tahoma] Шрифт Tahoma [/font]
+
+Возможные варианты типов шрифтов (наименования и визуальная оценка) доступны здесь.
+
+Оформление текста с помощью цвета:
+
+[color=Red] Красный текст [/color]
+* Можно пользоваться стандартными словесными обозначениями цветов: Red, Green, Blue и т.д.
+
+[color=#0000ff] Синий текст [/color]
+* Цифра #0000ff означает синий цвет в RGB палитре.
+
+[bg=#eeeeff] Голубой фон [/bg]
+* У фона тоже можно менять цвет.
+
+[color=#0000ff] [bg=lightgray] Синий текст, серый фон [/bg] [/color]
+
+Некоторые предопределённые цвета:
+
+    Black White Red Green Blue Purple Firebrick Maroon OrangeRed MidnightBlue CornflowerBlue
+    Cyan Yellow Magenta DarkGreen DarkGoldenrod Gold Orchid BlueViolet Burlywood PeachPuff
+
+Некоторые цвета в шестнадцатиричном коде — интенсивность красного, зелёного и синего (RRGGBB):
+
+    #000000 #FFFFFF #FF0000 #00FF00 #0000FF #FF00FF #FF4444 #FF9999 #FFCCCC #9999FF #FF99FF #DDDDDD #FFE4C4 #CCCC99 #FF8DC #FA8072 #990000 #FF3030 #000080 #000066 #0000CD #AFEEEE #006400 #66FF00 #00B800 #DAA520 #FFCC33 #FFA500 #C71585 #8B008B #CC33FF

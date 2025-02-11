@@ -1,0 +1,25 @@
+-- Объявляем представление (view) для извлечения информации о людях
+create view PersonMention as
+extract
+    regex /[A-Z][a-z]+ [A-Z][a-z]+/
+    on D.text as name
+from Document D;
+
+-- Объявляем представление для извлечения информации о городах
+create view CityMention as
+extract
+    regex /[A-Z][a-z]+/
+    on D.text as city
+from Document D;
+
+-- Объявляем представление для объединения людей и городов, находящихся рядом
+create view PersonLocation as
+select
+    P.name as personName,
+    C.city as cityName
+from PersonMention P, CityMention C
+where
+    Matches(P.name, C.city, 100);  -- Люди и города должны находиться на расстоянии не более 100 символов друг от друга
+
+-- Выводим результаты
+output view PersonLocation;

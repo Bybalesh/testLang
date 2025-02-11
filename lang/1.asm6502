@@ -1,0 +1,58 @@
+Prism.languages.asm6502 = {
+	'comment': /;.*/,
+	'directive': {
+		pattern: /\.\w+(?= )/,
+		alias: 'property'
+	},
+	; Пример кода для Commodore 64 (используется для иллюстрации)
+; Вывод строки "Hello, World!" на экран
+
+*=$0801  ; Адрес начала программы в памяти (BASIC start address)
+
+; BASIC loader (необходим для запуска программы с диска)
+        BYTE $0B, $08, $00, $00, $9E, $20, $32, $30, $36, $31, $00, $00, $00
+
+START   LDA #$00  ; Загружаем значение 0 в аккумулятор (A)
+        STA $D020 ; Устанавливаем цвет фона (черный)
+
+        LDA #$0E  ; Загружаем значение 14 в аккумулятор (A)
+        STA $D021 ; Устанавливаем цвет рамки (голубой)
+
+        LDX #$00  ; Загружаем индекс 0 в регистр X
+
+LOOP    LDA HELLO,X ; Загружаем байт из строки HELLO в аккумулятор (A)
+        CMP #$00  ; Сравниваем аккумулятор с 0 (конец строки)
+        BEQ DONE  ; Если равно 0, переходим к метке DONE
+
+        STA $0400,X ; Сохраняем байт из аккумулятора в видеопамять (скрин-код)
+        INX       ; Увеличиваем индекс X на 1
+        JMP LOOP  ; Переходим к метке LOOP
+
+DONE    RTS       ; Возврат из подпрограммы (возврат в BASIC)
+
+HELLO   ASC "HELLO, WORLD!" ; Строка для вывода
+        BYTE $00             ; Нулевой терминатор (конец строки)
+
+	'string': /(["'`])(?:\\.|(?!\1)[^\\\r\n])*\1/,
+	'op-code': {
+		pattern: /\b(?:ADC|AND|ASL|BCC|BCS|BEQ|BIT|BMI|BNE|BPL|BRK|BVC|BVS|CLC|CLD|CLI|CLV|CMP|CPX|CPY|DEC|DEX|DEY|EOR|INC|INX|INY|JMP|JSR|LDA|LDX|LDY|LSR|NOP|ORA|PHA|PHP|PLA|PLP|ROL|ROR|RTI|RTS|SBC|SEC|SED|SEI|STA|STX|STY|TAX|TAY|TSX|TXA|TXS|TYA|adc|and|asl|bcc|bcs|beq|bit|bmi|bne|bpl|brk|bvc|bvs|clc|cld|cli|clv|cmp|cpx|cpy|dec|dex|dey|eor|inc|inx|iny|jmp|jsr|lda|ldx|ldy|lsr|nop|ora|pha|php|pla|plp|rol|ror|rti|rts|sbc|sec|sed|sei|sta|stx|sty|tax|tay|tsx|txa|txs|tya)\b/,
+		alias: 'keyword'
+	},
+	'hex-number': {
+		pattern: /#?\$[\da-f]{1,4}\b/i,
+		alias: 'number'
+	},
+	'binary-number': {
+		pattern: /#?%[01]+\b/,
+		alias: 'number'
+	},
+	'decimal-number': {
+		pattern: /#?\b\d+\b/,
+		alias: 'number'
+	},
+	'register': {
+		pattern: /\b[xya]\b/i,
+		alias: 'variable'
+	},
+	'punctuation': /[(),:]/
+};

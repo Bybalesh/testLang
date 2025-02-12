@@ -8,6 +8,43 @@
 			lookbehind: true
 		}
 	});
+<?php
+/**
+ * Класс для работы с пользователями.
+ *
+ * @author Иван Иванов <ivan@example.com>
+ * @version 1.0
+ */
+class User
+{
+    /**
+     * Имя пользователя.
+     *
+     * @var string
+     */
+    private $name;
+
+    /**
+     * Конструктор класса.
+     *
+     * @param string $name Имя пользователя.
+     */
+    public function __construct(string $name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * Возвращает имя пользователя.
+     *
+     * @return string Имя пользователя.
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+}
+?>
 
 	Prism.languages.insertBefore('phpdoc', 'keyword', {
 		'class-name': [

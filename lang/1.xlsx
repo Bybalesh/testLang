@@ -1,2 +1,9 @@
 =SUM(A1:A10)
 =IF(B1 > 10, ksjajd)
+   workbook = openpyxl.load_workbook('example.xlsx')
+   sheet = workbook.active
+   
+
+   cell_value = sheet['A1'].value
+   print(f'Значение ячейки A1: {cell_value}')
+   

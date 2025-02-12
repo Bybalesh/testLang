@@ -1,5 +1,8 @@
 Prism.languages.keyman = {
 	'comment': {
+fun main() {
+    println("Привет, мир!")
+}
 		pattern: /\bc .*/i,
 		greedy: true
 {

@@ -2,6 +2,9 @@
 <!html>
 <head>
 -- example.lc
+on mouseUp
+   answer "Hello, World!"
+end mouseUp
 
 print("Hello, World!")
 

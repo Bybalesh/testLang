@@ -2,6 +2,8 @@ Prism.languages.jsstacktrace = {
 	'error-message': {
 		pattern: /^\S.*/m,
 		alias: 'string'
+ReferenceError: myFunction is not defined
+    at HTMLButtonElement.onclick (index.html:12)
 	},
 
 	'stack-frame': {

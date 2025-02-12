@@ -1,19 +1,14 @@
-.assembly Hello{}
-.method statis void Main()
-	'string': {
-		pattern: /(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,
-		greedy: true
-	},
+.assembly extern mscorlib {}
+.assembly HelloWorld {}
+.method static void Main() cil managed
+{
+    .entrypoint
+    .maxstack 8
 
-	'directive': {
-		pattern: /(^|\W)\.[a-z]+(?=\s)/,
-		lookbehind: true,
-		alias: 'class-name'
-	},
-
-	// Actually an assembly reference
-	'variable': /\[[\w\.]+\]/,
-
+    ldstr "Hello, World!"
+    call void [mscorlib]System.Console::WriteLine(string)
+    ret
+}
 
 	'keyword': /\b(?:abstract|ansi|assembly|auto|autochar|beforefieldinit|bool|bstr|byvalstr|catch|char|cil|class|currency|date|decimal|default|enum|error|explicit|extends|extern|famandassem|family|famorassem|final(?:ly)?|float32|float64|hidebysig|u?int(?:8|16|32|64)?|iant|idispatch|implements|import|initonly|instance|interface|iunknown|literal|lpstr|lpstruct|lptstr|lpwstr|managed|method|native(?:Type)?|nested|newslot|object(?:ref)?|pinvokeimpl|private|privatescope|public|reqsecobj|rtspecialname|runtime|sealed|sequential|serializable|specialname|static|string|struct|syschar|tbstr|unicode|unmanagedexp|unsigned|value(?:type)?|variant|virtual|void)\b/,
 

@@ -1,33 +1,10 @@
 Prism.languages.lolcode = {
 	'comment': [
 		/\bOBTW\s[\s\S]*?\sTLDR\b/,
-		/\bBTW.+/
-	],
-	'string': {
-		pattern: /"(?::.|[^":])*"/,
-		inside: {
-			'variable': /:\{[^}]+\}/,
-			'symbol': [
-				/:\([a-f\d]+\)/i,
-				/:\[[^\]]+\]/,
-				/:[)>o":]/
-			]
-		},
-		greedy: true
-	},
-	'number': /(?:\B-)?(?:\b\d+(?:\.\d*)?|\B\.\d+)/,
-	'symbol': {
-		pattern: /(^|\s)(?:A )?(?:BUKKIT|NOOB|NUMBAR|NUMBR|TROOF|YARN)(?=\s|,|$)/,
-		lookbehind: true,
-		inside: {
-			'keyword': /A(?=\s)/
-		}
-	},
-	'label': {
-		pattern: /((?:^|\s)(?:IM IN YR|IM OUTTA YR) )[a-zA-Z]\w*/,
-		lookbehind: true,
-		alias: 'string'
-	},
+HAI 1.2
+VISIBLE "HAI WORLD!"
+KTHXBYE
+
 	'function': {
 		pattern: /((?:^|\s)(?:HOW IZ I|I IZ|IZ) )[a-zA-Z]\w*/,
 		lookbehind: true

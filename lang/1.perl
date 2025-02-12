@@ -1,21 +1,9 @@
 (function (Prism) {
+#!/usr/bin/perl
 
-	var brackets = /(?:\((?:[^()\\]|\\[\s\S])*\)|\{(?:[^{}\\]|\\[\s\S])*\}|\[(?:[^[\]\\]|\\[\s\S])*\]|<(?:[^<>\\]|\\[\s\S])*>)/.source;
+# Вывод строки "Привет, мир!"
+print "Привет, мир!\n";
 
-	Prism.languages.perl = {
-		'comment': [
-			{
-				// POD
-				pattern: /(^\s*)=\w[\s\S]*?=cut.*/m,
-				lookbehind: true,
-				greedy: true
-			},
-			{
-				pattern: /(^|[^\\$])#.*/,
-				lookbehind: true,
-				greedy: true
-			}
-		],
 		// TODO Could be nice to handle Heredoc too.
 		'string': [
 			{

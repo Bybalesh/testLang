@@ -3,38 +3,3 @@ Prism.languages['firestore-security-rules'] = Prism.languages.extend('clike', {
 	'keyword': /\b(?:allow|function|if|match|null|return|rules_version|service)\b/,
 	'operator': /&&|\|\||[<>!=]=?|[-+*/%]|\b(?:in|is)\b/,
 });
-
-delete Prism.languages['firestore-security-rules']['class-name'];
-service cloud.firestore {
-  match /databases/{database}/documents {
-    // Доступ разрешен всем пользователям
-    match /{document=**} {
-      allow read, write: if true;
-    }
-    
-    // Ограничиваем доступ к документам 'users'
-    match /users/{userId} {
-      allow read, write: if request.auth.uid == userId;
-    }
-  }
-service cloud.firestore {
-  match /databases/{database}/documents {
-    // Только аутентифицированные пользователи могут читать и писать данные
-    match /{document=**} {
-      allow read, write: if request.auth != null;
-    }
-
-    // Ограничения для конкретной коллекции 'posts'
-    match /posts/{postId} {
-      // Пользователь может создавать новые посты
-      allow create: if request.auth != null && request.resource.data.author == request.auth.uid;
-      
-      // Пользователь может обновлять только свои посты
-      allow update: if request.auth != null && resource.data.author == request.auth.uid;
-      
-      // Пользователи могут удалять только свои посты
-      allow delete: if request.auth != null && resource.data.author == request.auth.uid;
-    }
-  }
-}
-

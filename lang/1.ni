@@ -1,23 +1,14 @@
-Prism.languages.inform7 = {
-	'string': {
-		pattern: /"[^"]*"/,
-		inside: {
-			'substitution': {
-				pattern: /\[[^\[\]]+\]/,
-				inside: {
-					'delimiter': {
-						pattern: /\[|\]/,
-						alias: 'punctuation'
-					}
-					// See rest below
-				}
-			}
-		}
-	},
-	'comment': {
-		pattern: /\[[^\[\]]+\]/,
-		greedy: true
-	},
+"Простое приключение" by GigaChat
+
+Волшебная комната - это комната. "Вы находитесь в волшебной комнате."
+
+Кубик Рубика находится в Волшебной комнате. Описание Кубика Рубика "Это загадочный кубик, который кажется сложным для решения."
+
+Когда игрок берет Кубик Рубика:
+    сказать "Вы взяли Кубик Рубика.";
+
+Тестирование заканчивается здесь.
+
 	'title': {
 		pattern: /^[ \t]*(?:book|chapter|part(?! of)|section|table|volume)\b.+/im,
 		alias: 'important'

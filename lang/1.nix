@@ -6,25 +6,24 @@ Prism.languages.nix = {
 	'string': {
 		pattern: /"(?:[^"\\]|\\[\s\S])*"|''(?:(?!'')[\s\S]|''(?:'|\\|\$\{))*''/,
 		greedy: true,
-		inside: {
-			'interpolation': {
-				// The lookbehind ensures the ${} is not preceded by \ or ''
-				pattern: /(^|(?:^|(?!'').)[^\\])\$\{(?:[^{}]|\{[^}]*\})*\}/,
-				lookbehind: true,
-				inside: null // see below
-			}
-		}
-	},
-	'url': [
-		/\b(?:[a-z]{3,7}:\/\/)[\w\-+%~\/.:#=?&]+/,
-		{
-			pattern: /([^\/])(?:[\w\-+%~.:#=?&]*(?!\/\/)[\w\-+%~\/.:#=?&])?(?!\/\/)\/[\w\-+%~\/.:#=?&]*/,
-			lookbehind: true
-		}
-	],
-	'antiquotation': {
-		pattern: /\$(?=\{)/,
-		alias: 'important'
+{ stdenv, fetchurl }:  # Аргументы функции: stdenv (стандартная среда) и fetchurl (функция для загрузки файлов)
+
+stdenv.mkDerivation {
+  name = "hello-world";
+  version = "1.0";
+
+  src = fetchurl {
+    url = "https://example.com/hello-world.tar.gz";
+    sha256 = "0abc123def456ghi789jkl012mno345pqr678stu901vwx234yz5";
+  };
+
+  buildInputs = [ ];  # Зависимости для сборки
+
+  installPhase = ''
+    mkdir -p $out/bin
+    cp hello-world $out/bin/
+  '';
+}
 	},
 	'number': /\b\d+\b/,
 	'keyword': /\b(?:assert|builtins|else|if|in|inherit|let|null|or|then|with)\b/,

@@ -3,7 +3,12 @@ Definition next_weekday (d:day) : day :=
   | monday => tuesday
   | tuesday => wednesday
   | wednesday => thursday
-  | thursday => friday
+  | thursday => fridaymodule main
+
+fn main() {
+    println('Hello, World!')
+}
+
   | friday => monday
   | saturday => monday
   | sunday => monday

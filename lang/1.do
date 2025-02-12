@@ -1,4 +1,23 @@
 // https://www.stata.com/manuals/m.pdf
+mata:
+
+// Функция для вычисления среднего арифметического
+real scalar mean(real vector x) {
+    real scalar result
+    result = sum(x)/length(x)
+    return(result)
+}
+
+// Создание вектора данных
+x = (1, 2, 3, 4, 5)
+
+// Вычисление среднего арифметического
+mean_x = mean(x)
+
+// Вывод результата
+st_matrix("mean_x", mean_x)
+
+end
 
 (function (Prism) {
 

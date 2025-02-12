@@ -1,10 +1,18 @@
-/* FIXME :
- :extend() is not handled specifically : its highlighting is buggy.
- Mixin usage must be inside a ruleset to be highlighted.
- At-rules (e.g. import) containing interpolations are buggy.
- Detached rulesets are highlighted as at-rules.
- A comment before a mixin usage prevents the latter to be properly highlighted.
- */
+// Переменная
+@primary-color: #007bff;
+
+// Миксин
+.border-radius(@radius) {
+  border-radius: @radius;
+}
+
+// Использование переменной и миксина
+.button {
+  background-color: @primary-color;
+  color: white;
+  padding: 10px 20px;
+  .border-radius(5px);
+}
 
 Prism.languages.less = Prism.languages.extend('css', {
 	'comment': [

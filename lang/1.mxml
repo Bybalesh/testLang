@@ -1,0 +1,27 @@
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<mxml xmlns="http://docbook.org/ns:docbook:5.0">
+<front>
+    <title>Пример MXML Doc</title>
+    <author>Имя автора</author>
+    <publisher>Название издателя</publisher>
+    <copyright>
+        <year>2023</year>
+        <holder>Правообладатель</holder>
+    </copyright>
+</front>
+
+<chapter id="introduction">
+    <title>Введение</title>
+    <para>Это пример технической документации, написанной на MXML Doc.</para>
+</chapter>
+
+<chapter id="getting-started">
+    <title>Начало работы</title>
+    <para>Здесь приводятся инструкции по началу работы с MXML Doc.</para>
+</chapter>
+
+<chapter id="advanced-features">
+    <title>Продвинутые возможности</title>
+    <para>В этом разделе рассматриваются продвинутые возможности MXML Doc.</para>
+</chapter>

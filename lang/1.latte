@@ -6,23 +6,23 @@
 			pattern: /(^\{(?:\/(?=[a-z]))?)(?:[=_]|[a-z]\w*\b(?!\())/i,
 			lookbehind: true,
 			alias: 'important'
-		},
-		'delimiter': {
-			pattern: /^\{\/?|\}$/,
-			alias: 'punctuation'
-		},
-		'php': {
-			pattern: /\S(?:[\s\S]*\S)?/,
-			alias: 'language-php',
-			inside: Prism.languages.php
-		}
-	};
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Пример на Latte</title>
+</head>
+<body>
+    <h1>Привет, {$username}!</h1>
+    
+    <ul n:if="$users|count > 0">
+        <li n:foreach="$user in $users">{$user->name}</li>
+    </ul>
+    
+    <p n:if="!$users|count">Пользователи отсутствуют.</p>
+</body>
+</html>
 
-	var markupLatte = Prism.languages.extend('markup', {});
-	Prism.languages.insertBefore('inside', 'attr-value', {
-		'n-attr': {
-			pattern: /n:[\w-]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+))?/,
-			inside: {
 				'attr-name': {
 					pattern: /^[^\s=]+/,
 					alias: 'important'

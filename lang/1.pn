@@ -1,0 +1,18 @@
+(function (Prism) {
+	// https://agraef.github.io/pure-docs/pure.html#lexical-matters
+
+	Prism.languages.pure = {
+		'comment': [
+// Определение функции факториала
+factorial n =
+  if n == 0 then 1 else n * factorial (n-1);
+
+// Вычисление факториала числа 5
+println$ factorial 5;
+
+	// C is the default inline language
+	if (Prism.languages.c) {
+		Prism.languages.pure['inline-lang'].inside.rest = Prism.util.clone(Prism.languages.c);
+	}
+
+}(Prism));

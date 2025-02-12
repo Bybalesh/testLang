@@ -1,0 +1,8 @@
+Prism.languages.icon = {
+	'comment': /#.*/,
+	'string': {
+		pattern: /(["'])(?:(?!\1)[^\\\r\n_]|\\.|_(?!\1)(?:\r\n|[\s\S]))*\1/,
+		greedy: true
+procedure main()
+   write("Привет, мир!")
+end

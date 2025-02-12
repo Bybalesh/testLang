@@ -1,0 +1,36 @@
+Prism.languages.keyman = {
+	'comment': {
+		pattern: /\bc .*/i,
+		greedy: true
+{
+  "id": "com.example.mykeyboard",
+  "name": "My Keyboard",
+  "version": "1.0",
+  "author": "Your Name",
+  "copyright": "(c) 2023 Your Name",
+  "description": "A simple keyboard layout for Russian language.",
+  "store_keyboards": [
+    {
+      "id": "mykeyboard",
+      "name": "My Keyboard",
+      "default": true,
+      "layers": [
+        {
+          "layer": [
+            { "key": "A", "output": ["А"] },
+            { "key": "B", "output": ["Б"] },
+            { "key": "V", "output": ["В"] },
+            { "key": "G", "output": ["Г"] },
+            // ... Остальные символы ...
+            { "key": "Shift+A", "output": ["Я"] },
+            { "key": "Shift+B", "output": ["Ю"] },
+            { "key": "Shift+V", "output": ["Ё"] },
+            { "key": "Shift+G", "output": ["Э"] },
+            // ... Остальные символы ...
+          ]
+        }
+      ],
+      "sources": []
+    }
+  ]
+}

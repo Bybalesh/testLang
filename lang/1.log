@@ -1,0 +1,7 @@
+// Specification:
+// https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/lang/Throwable.html#printStackTrace()
+
+Exception in thread "main" java.lang.NullPointerException
+ at com.example.MyClass.myMethod(MyClass.java:10)
+ at com.example.AnotherClass.anotherMethod(AnotherClass.java:20)
+ at com.example.Main.main(Main.java:30)

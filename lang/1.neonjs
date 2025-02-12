@@ -1,0 +1,79 @@
+Prism.languages.neon = {
+	'comment': {
+		pattern: /#.*/,
+		greedy: true
+
+```neonjs
+import "macros/registers.macros" в начале сценария.
+
+scenario_beginning {
+    macros.register("register_X", 128bit);
+    macros.set_flag("flag_registration");
+    macros.add_command("register_X", "ADD");
+    scenario_operation {
+       macros.ADD("register_X");
+       macros.SET_FLAG("flag_registration");
+       macros.RETURN();
+    }
+
+    scenario_conclusion {
+       macros.CLEAR_REGISTTERY("register_X");
+       macros.RESET_FLAGS();
+       macros.FINISH();
+    }
+
+    scenario_операция {
+       macros.ADD("register_X");
+       macros.SET_FLAG("flag_registration");
+       macros.RETURN();
+    }
+
+    scenario_заключение {
+       macros.CLEAR_REGISTТЕРY("register_X");
+       macros.RESET_FLAGS();
+       macros.FINALY:
+       macros.reset_all_registers();
+       macros.FINISH();
+    }
+
+    scenario_оппораздной {
+       macros.ADD("register_X");
+       macros.SUB("register_X");
+       macros.MOV("register_X");
+       macros.JMP;
+       macros.RETURN();
+       macros.NOP;
+       macros.RETURN();
+       macros.SET_FLAG("flag_registration");
+       macros.RESET_FLAGS();
+    }
+
+    scenario_оппораздной {
+       macros.COMMUKE_SEPT:
+       macros.СPLITРегистерY_VALS();
+       macros.REVERSE;
+       macros.МULЛИСТЬ;
+       macros.ДИРБАЦИЯ;
+       macros.MINUS;
+       macros.MAX;
+       macros.АВС;
+       macros.LESS;
+       macros.Greatest;
+       macros.Sharp;
+       macros.AboutMath;
+       macros.EcoLogicallyPricessible;
+       macros.CleanCode;
+       macros.ClampleSize;
+       macros.ComplexityAnalysis;
+       macros.HowToImplement;
+       macros.CommunityDrive;
+       macros.Influence;
+       macros.Формула-проекта:
+       macros.Princiпы_проектных_работах;
+       macros.Привали:
+       macros.Контролурная_управлятая_структура;
+       macros.Система_умертвания:
+       macros.Управление_люцишками_в_конечной_очередной;
+       macros.Восстановление_браучтных_информацияционных_потрицностей;
+       macros.Гуманитарная_поддержка:
+       macros.Поддержание_социальных_проектами_и_организациям:

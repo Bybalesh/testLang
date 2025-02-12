@@ -2,45 +2,18 @@ Prism.languages.mel = {
 	'comment': {
 		pattern: /\/\/.*|\/\*[\s\S]*?\*\//,
 		greedy: true
-	},
-	'code': {
-		pattern: /`(?:\\.|[^\\`])*`/,
-		greedy: true,
-		alias: 'italic',
-		inside: {
-			'delimiter': {
-				pattern: /^`|`$/,
-				alias: 'punctuation'
-			},
-			'statement': {
-				pattern: /[\s\S]+/,
-				inside: null // see below
-			}
-		}
-	},
-	'string': {
-		pattern: /"(?:\\.|[^\\"\r\n])*"/,
-		greedy: true
-	},
-	'variable': /\$\w+/,
-	'number': /\b0x[\da-fA-F]+\b|\b\d+(?:\.\d*)?|\B\.\d+/,
-	'flag': {
-		pattern: /-[^\d\W]\w*/,
-		alias: 'operator'
-	},
-	'keyword': /\b(?:break|case|continue|default|do|else|float|for|global|if|in|int|matrix|proc|return|string|switch|vector|while)\b/,
-	'function': {
-		pattern: /((?:^|[{;])[ \t]*)[a-z_]\w*\b(?!\s*(?:\.(?!\.)|[[{=]))|\b[a-z_]\w*(?=[ \t]*\()/im,
-		lookbehind: true,
-		greedy: true
-	},
+```mel
+// Создаем новый куб
+polyCube -w 1 -h 1 -d 1 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1;
 
-	'tensor-punctuation': {
-		pattern: /<<|>>/,
-		alias: 'punctuation'
-	},
-	'operator': /\+[+=]?|-[-=]?|&&|\|\||[<>]=?|[*\/!=]=?|[%^]/,
-	'punctuation': /[.,:;?\[\](){}]/
-};
+// Получаем ссылку на созданный куб
+string $cube[] = `ls -sl`;
 
-Prism.languages.mel['code'].inside['statement'].inside = Prism.languages.mel;
+// Перемещаем куб вверх на 5 единиц по оси Y
+setAttr ($cube[0] + ".ty") 5;
+```
+
+### Объяснение:
+- `polyCube -w 1 -h 1 -d 1 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1;` — создание нового куба с шириной, высотой и глубиной 1 единицу.
+- `string $cube[] = `ls -sl`;` — получение ссылки на созданный куб.
+- `setAttr ($cube[0] + ".ty") 5;` — изменение позиции куба по оси Y на 5 единиц.

@@ -1,0 +1,8 @@
+Prism.languages.kusto = {
+	'comment': {
+		pattern: /\/\/.*/,
+		greedy: true
+Logs
+| where Timestamp > ago(1d) // выбираем записи за последние сутки
+| where Level == "Error"    // фильтруем по уровню ошибок
+| summarize count() by UserId // считаем количество ошибок для каждого пользователя

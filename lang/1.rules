@@ -3,3 +3,26 @@ Prism.languages['firestore-security-rules'] = Prism.languages.extend('clike', {
 	'keyword': /\b(?:allow|function|if|match|null|return|rules_version|service)\b/,
 	'operator': /&&|\|\||[<>!=]=?|[-+*/%]|\b(?:in|is)\b/,
 });
+```bash
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+
+# Разрешать весь исходящий трафик
+-A OUTPUT -j ACCEPT
+
+# Разрешать локальный трафик (loopback)
+-A INPUT -i lo -j ACCEPT
+
+# Разрешать уже установленные соединения
+-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+# Открыть порт SSH (22)
+-A INPUT -p tcp --dport 22 -j ACCEPT
+
+# Блокировать все остальные входящие подключения
+-A INPUT -j DROP
+
+COMMIT
+```

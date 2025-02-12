@@ -1,0 +1,46 @@
+(function (Prism) {
+	var funcPattern = /\\(?:[^a-z()[\]]|[a-z*]+)/i;
+	var insideEqu = {
+		'equation-command': {
+			pattern: funcPattern,
+			alias: 'regex'
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\begin{document}
+
+\title{Пример документа на LaTeX}
+\author{Ваше Имя}
+\date{\today}
+
+\maketitle
+
+\begin{abstract}
+Это краткое содержание вашего документа.
+\end{abstract}
+
+\section{Введение}
+Здесь вы описываете введение к вашему документу.
+
+\subsection{Подраздел введения}
+Более детальная информация о введении.
+
+\section{Основная часть}
+Основной текст вашего документа.
+
+\subsection{Первый подраздел основной части}
+Описание первого подраздела.
+
+\subsubsection{Мелкий подраздел}
+Еще более подробная информация.
+
+\section{Заключение}
+Заключение вашего документа.
+
+\end{document}
+
+
+	Prism.languages.tex = Prism.languages.latex;
+	Prism.languages.context = Prism.languages.latex;
+}(Prism));

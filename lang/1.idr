@@ -3,17 +3,13 @@ Prism.languages.idris = Prism.languages.extend('haskell', {
 		pattern: /(?:(?:--|\|\|\|).*$|\{-[\s\S]*?-\})/m,
 	},
 	'keyword': /\b(?:Type|case|class|codata|constructor|corecord|data|do|dsl|else|export|if|implementation|implicit|import|impossible|in|infix|infixl|infixr|instance|interface|let|module|mutual|namespace|of|parameters|partial|postulate|private|proof|public|quoteGoal|record|rewrite|syntax|then|total|using|where|with)\b/,
-	'builtin': undefined
-});
+module Main
 
-Prism.languages.insertBefore('idris', 'keyword', {
-	'import-statement': {
-		pattern: /(^\s*import\s+)(?:[A-Z][\w']*)(?:\.[A-Z][\w']*)*/m,
-		lookbehind: true,
-		inside: {
-			'punctuation': /\./
-		}
-	}
-});
+data Nat = Z | S Nat
 
-Prism.languages.idr = Prism.languages.idris;
+plus : Nat -> Nat -> Nat
+plus Z     y = y
+plus (S x) y = S (plus x y)
+
+main : IO ()
+main = printLn (plus (S (S Z)) (S Z))

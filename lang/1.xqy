@@ -5,7 +5,25 @@
 			pattern: /\(:[\s\S]*?:\)/,
 			greedy: true,
 			alias: 'comment'
-		},
+		},declare context item := document {
+    <library>
+        <book>
+            <title>Книга 1</title>
+            <author>Автор 1</author>
+            <year>2023</year>
+        </book>
+        <book>
+            <title>Книга 2</title>
+            <author>Автор 2</author>
+            <year>2022</year>
+        </book>
+    </library>
+};
+
+for $book in /library/book
+where xs:integer($book/year) > 2022
+return $book/title
+
 		'string': {
 			pattern: /(["'])(?:\1\1|(?!\1)[\s\S])*\1/,
 			greedy: true

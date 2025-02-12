@@ -4,6 +4,12 @@ Prism.languages.pcaxis = {
 	program HelloWorld(input, output);
 ```psl
 -- PSL Properties for the system
+{
+    "A1" -> "U1/A",
+    "B1" -> "U1/B",
+    "C1" -> "U1/C",
+    "D1" -> "U1/D",
+}
 
 default clock is rising_edge(clk);
 

@@ -1,23 +1,36 @@
-(function (Prism) {
+[dependencies]
+anyhow.workspace = true
+anyhow.workspace = true
+bs58 = "0.5"
+hex = "0.4"
+poem-openapi.workspace = true
+poem-openapi.workspace = true
 
-	var key = /(?:[\w-]+|'[^'\n\r]*'|"(?:\\.|[^\\"\r\n])*")/.source;
+poem.workspace = true
 
-	/**
-	 * @param {string} pattern
-	 */
-	function insertKey(pattern) {
-		return pattern.replace(/__/g, function () { return key; });
-	}
+poem.workspace = true
 
-	Prism.languages.toml = {
-		'comment': {
-			pattern: /#.*/,
-			greedy: true
-		},
-		'table': {
-			pattern: RegExp(insertKey(/(^[\t ]*\[\s*(?:\[\s*)?)__(?:\s*\.\s*__)*(?=\s*\])/.source), 'm'),
-			lookbehind: true,
-			greedy: true,
+serde_json = "1.0"
+
+serde_json = "1.0"
+
+thiserror.workspace = true
+thiserror.workspace = true
+tokio-stream = { version = "0.1", features = ["sync"] }
+tokio-stream.workspace = true
+tokio.workspace = true
+tokio.workspace = true
+
+tracing-subscriber.workspace = true
++	
+17
+tracing-subscriber.workspace = true
++
+18
+tracing.workspace = true
++	
+18
+tracing.workspace = true
 			alias: 'class-name'
 		},
 		'key': {

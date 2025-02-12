@@ -1,0 +1,18 @@
+/* eslint-disable regexp/no-dupe-characters-character-class */
+(function (Prism) {
+
+	/**
+алг окружность
+нач
+    перем i, x, y
+    i := 0
+    нц пока i < 360
+        x := cos(i) * 50 + 300
+        y := sin(i) * 50 + 250
+        точка(x, y)
+        i := i + 10
+    кц
+кон
+
+
+}(Prism));

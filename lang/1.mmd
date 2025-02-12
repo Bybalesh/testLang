@@ -1,0 +1,13 @@
+Prism.languages.mermaid = {
+	'comment': {
+		pattern: /%%.*/,
+		greedy: true
+	},
+sequenceDiagram
+    участник A как Пользователь
+    участник B как Система
+
+    A ->> B: Запрос данных
+    Note over A: Пользователь отправляет запрос
+    B -->> A: Ответ с данными
+    Note over A: Система отвечает данными

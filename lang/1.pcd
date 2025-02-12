@@ -1,0 +1,27 @@
+Prism.languages.peoplecode = {
+	'comment': RegExp([
+		// C-style multiline comments
+	/* Этот пример показывает, как можно использовать PeopleCode для обработки события FieldChange */
+
+message GetName(PMRL_NAME:name_rec);
+
+method FieldChange
+   /+ &field_name as String +/
+   
+   If &field_name = "NAME" Then
+      /* Получаем значение поля NAME */
+      Local string &name = %Field;
+      
+      /* Проверяем, заполнено ли поле */
+      If None(&name) Then
+         /* Поле пустое, выводим предупреждение */
+         WinMessage("Please enter a valid name.", 0);
+      Else
+         /* Вызываем метод GetName для получения полного имени */
+         Local name_rec &full_name = GetName(&name);
+         
+         /* Обновляем поле NAME полным именем */
+         %Field = &full_name.first_name | " " | &full_name.last_name;
+      End-If;
+   End-If;
+end-method;

@@ -4,11 +4,7 @@
  * Reference: https://scotthelme.co.uk/hsts-cheat-sheet/
  */
 
-Prism.languages.hsts = {
-	'directive': {
-		pattern: /\b(?:includeSubDomains|max-age|preload)(?=[\s;=]|$)/i,
-		alias: 'property'
-	},
-	'operator': /=/,
-	'punctuation': /;/
-};
+# Пример конфигурации HSTS для домена example.com
+
+add_header Strict-Transport-Security "max-age=31536000; includeSubDomains";
+

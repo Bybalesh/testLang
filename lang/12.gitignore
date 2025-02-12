@@ -1,0 +1,14 @@
+# Комментарий: Игнорируем все файлы с расширением .log
+*.log
+
+# Игнорируем конкретную директорию
+/build/
+
+# Исключаем конкретный файл
+secrets.txt
+
+	Prism.languages.gitignore = Prism.languages.ignore;
+	Prism.languages.hgignore = Prism.languages.ignore;
+	Prism.languages.npmignore = Prism.languages.ignore;
+
+}(Prism));

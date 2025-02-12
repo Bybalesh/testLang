@@ -1,4 +1,5 @@
 // https://wren.io/
+System.print("Hello, World!")
 
 Prism.languages.wren = {
 	// Multiline comments in Wren can have nested multiline comments

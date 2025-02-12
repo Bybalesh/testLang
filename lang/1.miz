@@ -1,0 +1,31 @@
+environ
+   vocabularies REAL_1, ARITHM, FUNCT_1;
+   notation XCMPLX_0, XREAL_0, COMPLEX1, NAT_1, NUMBERS;
+   constructors XCMPLX_0, XREAL_0, COMPLEX1, NAT_1, NUMBERS;
+   registrations XCMPLX_0, XREAL_0, COMPLEX1, NAT_1, NUMBERS;
+   requirements SUBSET, BOOLE, NUMERALS, ARITHRED;
+end;
+
+definition
+  let x be Real;
+  func abs x -> Real equals :: ABSVALUE:1
+  |x| if x >= 0
+  -x otherwise ;
+end;
+
+theorem Th1:
+  for x being Real holds abs(-x) = abs(x)
+proof
+  let x be Real;
+  per cases;
+  suppose x >= 0;
+  then -x <= 0;
+  hence abs(-x) = -(-x) = x by Def1;
+  thus abs(-x) = abs(x) by Def1;
+  end;
+  suppose x < 0;
+  then -x > 0;
+  hence abs(-x) = -x by Def1;
+  thus abs(-x) = abs(x) by Def1;
+  end;
+end;

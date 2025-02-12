@@ -1,18 +1,38 @@
-(function (Prism) {
-	var funcPattern = /\\(?:[^a-z()[\]]|[a-z*]+)/i;
-	var insideEqu = {
-		'equation-command': {
-			pattern: funcPattern,
-			alias: 'regex'
 \documentclass{article}
-\usepackage[utf8]{inputenc}
-\usepackage[russian]{babel}
+\usepackage{amsmath} % Пакет для работы с математическими формулами
+\usepackage{graphicx} % Пакет для вставки изображений
 
 \begin{document}
 
 \title{Пример документа на LaTeX}
 \author{Ваше Имя}
-\date{\today}
+\date{\today} % Автоматическая вставка сегодняшней даты
+
+\maketitle
+
+\section{Введение}
+Это пример документа, набранного в системе \LaTeX. Она позволяет создавать документы высокого качества, особенно те, которые содержат математические формулы.
+
+\section{Формулы}
+Математические формулы можно набирать прямо в тексте. Например, формула квадрата суммы выглядит так:
+
+\[
+(a + b)^2 = a^2 + 2ab + b^2
+\]
+
+Также можно вставлять изображения:
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{example_image.png}
+\caption{Пример изображения.}
+\label{fig:example_image}
+\end{figure}
+
+\section{Заключение}
+Как видите, LaTeX предоставляет мощные инструменты для создания профессиональных документов.
+
+\end{document}
 
 \maketitle
 

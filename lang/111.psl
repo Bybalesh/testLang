@@ -1,0 +1,27 @@
+Prism.languages.pcaxis = {
+	'string': /"[^"]*"/,
+	'keyword': {
+	program HelloWorld(input, output);
+
+// Функция вывода приветствия
+procedure SayHello(name: string);
+begin
+    writeln('Привет, ', name, '!');
+end;
+
+var
+    userName: string;
+
+begin
+    // Получаем имя пользователя
+    write('Как тебя зовут? ');
+    readln(userName);
+    
+    // Вызываем функцию для вывода приветствия
+    SayHello(userName);
+end.
+
+	'boolean': /NO|YES/,
+};
+
+Prism.languages.px = Prism.languages.pcaxis;

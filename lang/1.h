@@ -9,3 +9,12 @@ Prism.languages.objectivec = Prism.languages.extend('c', {
 - (void)sayHello;
 
 @end
+#import "Example.h"
+
+int main(int argc, const char * argv[]) {
+    @autoreleasepool {
+        Example *example = [[Example alloc] init];
+        [example sayHello];
+    }
+    return 0;
+}

@@ -1,0 +1,34 @@
+Prism.languages.roboconf = {
+	'comment': /#.*/,
+	'keyword': {
+		'pattern': /(^|\s)(?:(?:external|import)\b|(?:facet|instance of)(?=[ \t]+[\w-]+[ \t]*\{))/,
+		lookbehind: true
+bundle Fabrik {
+    installer.initd('fabric')
+    control {
+        start = '''
+            fabcontrol start
+        '''
+        stop = '''
+            fabcontrol stop
+        '''
+        restart = '''
+            fabcontrol restart
+        '''
+    }
+}
+
+aspect service {
+    tomcat: bundle Fabrik
+}
+
+bundle project {
+    facet service
+    details {
+        inputs.facet << [
+            "service",
+        ]
+    }
+}
+
+

@@ -1,0 +1,43 @@
+(function (Prism) {
+	var unit = {
+		pattern: /(\b\d+)(?:%|[a-z]+)/,
+		lookbehind: true
+	};
+	// 123 -123 .123 -.123 12.3 -12.3
+	var number = {
+		pattern: /(^|[^\w.-])-?(?:\d+(?:\.\d+)?|\.\d+)/,
+		lookbehind: true
+	};
+
+	var inside = {
+		'comment': {
+			pattern: /(^|[^\\])(?:\/\*[\s\S]*?\*\/|\/\/.*)/,
+			lookbehind: true
+		},
+		'url': {
+alias: 'punctuation'
+	body {
+    background-color: #f0f0ff;
+    font-family: Arial;
+    margin-top: 30px;
+    padding: 10px 40px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+p {
+    font-size: 14px;
+    line-height: 1.6em;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: justify;
+}
+		},
+	
+

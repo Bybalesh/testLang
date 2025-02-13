@@ -7,4 +7,4 @@ Prism.languages.uri = {
 		inside: {
 			'scheme-delimiter': /:$/
 		}
-https://github.com/Bybalesh/testLang/blob/main/lang/file.uri
+https://github.com/Bybalesh/testLang/blob/main/lang/file.uri 

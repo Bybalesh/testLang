@@ -1,5 +1,9 @@
 // https://en.wikipedia.org/wiki/Test_Anything_Protocol
-
+```tap
+BEGIN
+    SELECT * FROM table1 WHERE column1 = 'value';
+END
+```
 Prism.languages.tap = {
 	'fail': /not ok[^#{\n\r]*/,
 	'pass': /ok[^#{\n\r]*/,

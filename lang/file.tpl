@@ -1,5 +1,10 @@
 (function (Prism) {
+```php
+{extends file='layout.tpl'}
 
+<h1>Привет, Smarty!</h1>
+<p>Сегодня {$today|date_format:"Y-m-d"}.</p>
+```
 	Prism.languages.smarty = {
 		'comment': {
 			pattern: /^\{\*[\s\S]*?\*\}/,

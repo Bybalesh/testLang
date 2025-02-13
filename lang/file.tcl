@@ -2,27 +2,14 @@ Prism.languages.tcl = {
 	'comment': {
 		pattern: /(^|[^\\])#.*/,
 		lookbehind: true
-	},
-	'string': {
-		pattern: /"(?:[^"\\\r\n]|\\(?:\r\n|[\s\S]))*"/,
-		greedy: true
-	},
-	'variable': [
-		{
-			pattern: /(\$)(?:::)?(?:[a-zA-Z0-9]+::)*\w+/,
-			lookbehind: true
-		},
-		{
-			pattern: /(\$)\{[^}]+\}/,
-			lookbehind: true
-		},
-		{
-			pattern: /(^[\t ]*set[ \t]+)(?:::)?(?:[a-zA-Z0-9]+::)*\w+/m,
-			lookbehind: true
-		}
-	],
-	'function': {
-		pattern: /(^[\t ]*proc[ \t]+)\S+/m,
+puts "Привет, мир!"
+
+# Пример функции
+def sayHello():
+    puts "Привет, мир!"
+
+sayHello()
+
 		lookbehind: true
 	},
 	'builtin': [

@@ -8,3 +8,12 @@ Prism.languages.vim = {
 	'operator': /\|\||&&|[-+.]=?|[=!](?:[=~][#?]?)?|[<>]=?[#?]?|[*\/%?]|\b(?:is(?:not)?)\b/,
 	'punctuation': /[{}[\](),;:]/
 };
+" Файл: example.vim
+
+" Функция для удаления лишних пробелов в конце строк
+function! TrimWhitespace()
+    %s/\s\+$//e
+endfunction
+
+" Назначаем горячую клавишу F5 для вызова функции
+nnoremap <F5> :call TrimWhitespace()<CR>

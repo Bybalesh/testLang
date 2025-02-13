@@ -4,20 +4,18 @@
 	var velocity = {
 		'variable': {
 			pattern: /(^|[^\\](?:\\\\)*)\$!?(?:[a-z][\w-]*(?:\([^)]*\))?(?:\.[a-z][\w-]*(?:\([^)]*\))?|\[[^\]]+\])*|\{[^}]+\})/i,
-			lookbehind: true,
-			inside: {} // See below
-		},
-		'string': {
-			pattern: /"[^"]*"|'[^']*'/,
-			greedy: true
-		},
-		'number': /\b\d+\b/,
-		'boolean': /\b(?:false|true)\b/,
-		'operator': /[=!<>]=?|[+*/%-]|&&|\|\||\.\.|\b(?:eq|g[et]|l[et]|n(?:e|ot))\b/,
-		'punctuation': /[(){}[\]:,.]/
-	};
-
-	velocity.variable.inside = {
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Привет, Velocity!</title>
+</head>
+<body>
+    <h1>Привет, $name!</h1>
+    <p>Сегодня $date.</p>
+</body>
+</html>
+ = {
 		'string': velocity['string'],
 		'function': {
 			pattern: /([^\w-])[a-z][\w-]*(?=\()/,

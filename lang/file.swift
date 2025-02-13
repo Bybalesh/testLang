@@ -15,3 +15,9 @@ func greetUser() {
 
 // Вызываем функцию greetUser
 greetUser()
+// Константы
+let speedOfLight = 299_792_458
+let numberOfApples = 345
+let numberOfOranges = 5
+let appleSummary = "I have \(numberOfApples) apples."
+let fruitSummary = "I have \(numberOfApples + numberOfOranges) pieces of fruit."

@@ -1,0 +1,29 @@
+Prism.languages.roboconf = {
+	'comment': /#.*/,
+	'keyword': {
+		'pattern': /(^|\s)(?:(?:external|import)\b|(?:facet|instance of)(?=[ \t]+[\w-]+[ \t]*\{))/,
+# Пример файла .graph для Roboconf
+graph {
+    component WebServer {
+        installer: puppet;
+        exports: ip, port = 8080;
+    }
+
+    component Database {
+        installer: puppet;
+        exports: ip, port = 3306;
+    }
+
+    component LoadBalancer {
+        installer: puppet;
+        imports: WebServer.ip, WebServer.port;
+        exports: ip, port = 80;
+    }
+}
+        inputs.facet << [
+            "service",
+        ]
+    }
+}
+
+

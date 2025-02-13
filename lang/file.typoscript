@@ -4,77 +4,16 @@
 
 	Prism.languages.typoscript = {
 		'comment': [
-			{
-				// multiline comments /* */
-				pattern: /(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/,
-				lookbehind: true
-			},
-			{
-				// double-slash comments - ignored when backslashes or colon is found in front
-				// also ignored whenever directly after an equal-sign, because it would probably be an url without protocol
-				pattern: /(^|[^\\:= \t]|(?:^|[^= \t])[ \t]+)\/\/.*/,
-				lookbehind: true,
-				greedy: true
-			},
-			{
-				// hash comments - ignored when leading quote is found for hex colors in strings
-				pattern: /(^|[^"'])#.*/,
-				lookbehind: true,
-				greedy: true
-			}
-		],
-		'function': [
-			{
-				// old include style
-				pattern: /<INCLUDE_TYPOSCRIPT:\s*source\s*=\s*(?:"[^"\r\n]*"|'[^'\r\n]*')\s*>/,
-				inside: {
-					'string': {
-						pattern: /"[^"\r\n]*"|'[^'\r\n]*'/,
-						inside: {
-							'keyword': keywords,
-						},
-					},
-					'keyword': {
-						pattern: /INCLUDE_TYPOSCRIPT/,
-					},
-				},
-			},
-			{
-				// new include style
-				pattern: /@import\s*(?:"[^"\r\n]*"|'[^'\r\n]*')/,
-				inside: {
-					'string': /"[^"\r\n]*"|'[^'\r\n]*'/,
-				},
-			}
-		],
-		'string': {
-			pattern: /^([^=]*=[< ]?)(?:(?!\]\n).)*/,
-			lookbehind: true,
-			inside: {
-				'function': /\{\$.*\}/, // constants include
-				'keyword': keywords,
-				'number': /^\d+$/,
-				'punctuation': /[,|:]/,
-			}
-		},
-		'keyword': keywords,
-		'number': {
-			// special highlighting for indexes of arrays in tags
-			pattern: /\b\d+\s*[.{=]/,
-			inside: {
-				'operator': /[.{=]/,
-			}
-		},
-		'tag': {
-			pattern: /\.?[-\w\\]+\.?/,
-			inside: {
-				'punctuation': /\./,
-			}
-		},
-		'punctuation': /[{}[\];(),.:|]/,
-		'operator': /[<>]=?|[!=]=?=?|--?|\+\+?|&&?|\|\|?|[?*/~^%]/,
-	};
 
-	Prism.languages.tsconfig = Prism.languages.typoscript;
-
-}(Prism));
+```typoscript
+page = PAGE
+page {
+    typeNum = 0
+    config {
+        no_cache = 1
+        absRefPrefix = /
+    }
+    10 = TEXT
+    10.value = <h1>Привет, мир!</h1>
+}
+```

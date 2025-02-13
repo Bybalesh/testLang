@@ -1,16 +1,20 @@
 Prism.languages.verilog = {
 	'comment': {
-		pattern: /\/\/.*|\/\*[\s\S]*?\*\//,
-		greedy: true
-	},
-	'string': {
-		pattern: /"(?:\\(?:\r\n|[\s\S])|[^"\\\r\n])*"/,
-		greedy: true
-	},
-	'kernel-function': {
-		// support for any kernel function (ex: $display())
-		pattern: /\B\$\w+\b/,
-		alias: 'property'
+```verilog
+// Файл: example.v
+
+module AND_Gate(
+    input wire A,
+    input wire B,
+    output reg Y
+);
+
+always @(*) begin
+    Y = A & B;
+end
+
+endmodule
+``` 'property'
 	},
 	// support for user defined constants (ex: `define)
 	'constant': /\B`\w+\b/,

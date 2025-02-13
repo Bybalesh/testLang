@@ -1,0 +1,14 @@
+Prism.languages['nand2tetris-hdl'] = {
+	'comment': /\/\/.*|\/\*[\s\S]*?(?:\*\/|$)/,
+// Этот файл описывает полускалярный мультиплексор (MUX) с двумя входами и одним выходом.
+
+CHIP Mux {
+    IN a, b, sel;
+    OUT out;
+
+    PARTS:
+    Not(in=sel, out=notSel);
+    And(a=a, b=notSel, out=outA);
+    And(a=b, b=sel, out=outB);
+    Or(a=outA, b=outB, out=out);
+}

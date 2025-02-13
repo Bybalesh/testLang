@@ -1,5 +1,26 @@
 // https://www.stata.com/manuals/u.pdf
 // https://www.stata.com/manuals/p.pdf
+proc ImportData(filename) {
+    local dataset Dataset;
+    try {
+        Dataset <- DataSet.readCSV(filename);
+    } catch (Exception ex) {
+        printf("Ошибка при чтении данных из файла '%s': %s\n", filename, ex.message);
+    }
+    return Dataset;
+}
+
+proc ProcessData(dataset) {
+    dataset.ProcessLogic();
+}
+
+proc RunAnalysis {
+    local dataset Dataset;
+    Dataset <- ImportData("my_data.csv");
+    ProcessData(Dataset);
+}
+
+RunAnalysis;
 
 Prism.languages.stata = {
 	'comment': [

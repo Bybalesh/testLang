@@ -1,5 +1,24 @@
 // Test files for the parser itself:
 // https://github.com/JesusFreke/smali/tree/master/smali/src/test/resources/LexerTest
+.include "mcu_defines.asm"
+
+.code
+    .section .text
+    .globl _start
+_start:
+    ldi #0xFF, .asm_label("RESET")
+    br .asm_label("INT_VECT")
+
+.section .reset
+    reset:
+        cli
+        sei
+        nop
+        reti
+
+.int_vect:
+    jmp _start
+
 
 Prism.languages.smali = {
 	'comment': /#.*/,

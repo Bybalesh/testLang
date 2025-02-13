@@ -1,25 +1,14 @@
 (function (Prism) {
 
-	/**
-	 * Replaces all placeholders "<<n>>" of given pattern with the n-th replacement (zero based).
-	 *
-	 * Note: This is a simple text based replacement. Be careful when using backreferences!
-	 *
-	 * @param {string} pattern the given pattern.
-	 * @param {string[]} replacements a list of replacement which can be inserted into the given pattern.
-	 * @returns {string} the pattern with all placeholders replaced with their corresponding replacements.
-	 * @example replace(/a<<0>>a/.source, [/b+/.source]) === /a(?:b+)a/.source
-	 */
-	function replace(pattern, replacements) {
-		return pattern.replace(/<<(\d+)>>/g, function (m, index) {
-			return '(?:' + replacements[+index] + ')';
-		});
-	}
-	/**
-	 * @param {string} pattern
-	 * @param {string[]} replacements
-	 * @param {string} [flags]
-	 * @returns {RegExp}
+namespace Introduction {
+
+    open Microsoft.Quantum.Intrinsic;
+
+    operation HelloQuantumWorld() : Unit {
+        Message("Hello quantum world!");
+    }
+}
+
 	 */
 	function re(pattern, replacements, flags) {
 		return RegExp(replace(pattern, replacements), flags || '');

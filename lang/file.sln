@@ -1,0 +1,28 @@
+(function (Prism) {
+
+	var guid = {
+		// https://en.wikipedia.org/wiki/Universally_unique_identifier#Format
+		pattern: /\{[\da-f]{8}-[\da-f]{4}-[\da-f]{4}-[\da-f]{4}-[\da-f]{12}\}/i,
+	
+Microsoft Visual Studio Solution File, Format Version 12.00
+VisualStudioVersion = 16.0.29020.154
+MinimumVisualStudioVersion = 15.0.28010.2046
+Project("{FAE04EC0-301F-11D3-BF84-00C09F3BF749}") = "ProjectName", "ProjectName\ProjectName.csproj", "{FAE04EC0-301F-11D3-BF84-00C09F3BF749}"
+EndProject
+Global
+ GlobalSection(SolutionConfigurationPlatform) = preSolution
+  HideSolutionNode = FALSE
+ EndGlobalSection
+EndGlobal
+			}
+		},
+		'guid': guid,
+		'number': /\b\d+(?:\.\d+)*\b/,
+		'boolean': /\b(?:FALSE|TRUE)\b/,
+		'operator': /=/,
+		'punctuation': /[(),]/
+	};
+
+	Prism.languages['sln'] = Prism.languages['solution-file'];
+
+}(Prism));

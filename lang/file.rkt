@@ -5,14 +5,16 @@ Prism.languages.racket = Prism.languages.extend('scheme', {
 		pattern: /([(\[]lambda\s+[(\[])[^()\[\]'\s]+/,
 		lookbehind: true
 	}
-});
+#lang racket
 
-Prism.languages.insertBefore('racket', 'string', {
-	'lang': {
-		pattern: /^#lang.+/m,
-		greedy: true,
-		alias: 'keyword'
-	}
-});
+;; Функция для сложения двух чисел
+(define (add x y)
+  (+ x y))
 
-Prism.languages.rkt = Prism.languages.racket;
+;; Основная программа
+(define main
+  (let ([a 5]
+        [b 7])
+    (displayln (format "Сумма ~a и ~a равна ~a." a b (add a b)))))
+
+(main)

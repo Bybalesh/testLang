@@ -9,7 +9,13 @@
 		},
 		'builtin': /\b(?:Array|Function|Promise|any|boolean|console|never|number|string|symbol|unknown)\b/,
 	});
+```typescript
+function greet(name: string): string {
+    return `Привет, ${name}!`;
+}
 
+console.log(greet('мир'));
+```
 	// The keywords TypeScript adds to JavaScript
 	Prism.languages.typescript.keyword.push(
 		/\b(?:abstract|declare|is|keyof|readonly|require)\b/,

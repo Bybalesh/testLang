@@ -1,0 +1,12 @@
+Prism.languages.turtle = {
+	'comment': {
+		pattern: /#.*/,
+		greedy: true
+	},
+forward 100     ; двигаться вперед на 100 шагов
+right 90        ; повернуть направо на 90 градусов
+forward 100
+right 90
+forward 100
+right 90
+forward 100

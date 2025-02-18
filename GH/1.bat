@@ -1,11 +1,27 @@
-(function (Prism) {
-	var variable = /%%?[~:\w]+%?|!\S+!/;
-	var parameter = {
-		pattern: /\/[a-z?]+(?=[ :]|$):?|-[a-z]\b|--[a-z-]+\b/im,
-		alias: 'attr-name',
-		inside: {
-			'punctuation': /:/
-		}
+@echo off
+
+REM Этот скрипт выводит "Hello, world!" и текущую дату и время.
+
+echo Hello, world!
+
+date /t
+time /t
+
+REM Пример использования условного оператора
+
+if exist "C:\Temp\mydir" (
+  echo Директория C:\Temp\mydir существует.
+) else (
+  echo Директории C:\Temp\mydir не существует.
+)
+
+REM Пример использования цикла for
+
+for /l %%i in (1,1,5) do (
+  echo Итерация: %%i
+)
+
+pause
 	};
 	rem Ищем все файлы с расширением jpeg в каталоге work
 rem Ключ /r включает в поиск все подкаталоги в каталоге work

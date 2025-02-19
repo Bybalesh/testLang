@@ -9,6 +9,12 @@ Prism.languages.prolog = {
 		pattern: /(["'])(?:\1\1|\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1(?!\1)/,
 		greedy: true
 	},
+parent(john, mary).
+parent(mary, alice).
+parent(bob, alice).
+
+grandparent(X, Z) :- parent(X, Y), parent(Y, Z).
+
 	'builtin': /\b(?:fx|fy|xf[xy]?|yfx?)\b/,
 	// FIXME: Should we list all null-ary predicates (not followed by a parenthesis) like halt, trace, etc.?
 	'function': /\b[a-z]\w*(?:(?=\()|\/\d+)/,
